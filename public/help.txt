@@ -1,0 +1,11 @@
+install :
+
+
+axios
+react-slick-craousel
+
+react-icons
+
+react-router-dom
+
+react-redux
