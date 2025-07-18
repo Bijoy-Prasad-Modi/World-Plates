@@ -335,3 +335,28 @@ footer .navbar-brand {
 .recipe-list {
   @apply grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-10 my-4;
 }
+
+/*  PAGES  */
+
+/* home page */
+.home-page .categories {
+  @apply py-10;
+}
+.home-page .showcase-recipes {
+  @apply py-5;
+}
+.home-page .dishes {
+  @apply bg-black/5 py-10;
+}
+.home-page .dishes-list {
+  @apply grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 pb-4;
+}
+.home-page .dishes-item {
+  @apply rounded overflow-hidden;
+}
+.home-page .dishes-item-name {
+  @apply flex items-center font-medium;
+}
+.home-page .meals {
+  @apply bg-black/5 py-10 bg-white;
+}
