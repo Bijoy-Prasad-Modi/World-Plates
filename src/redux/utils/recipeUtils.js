@@ -19,3 +19,27 @@ export const fetchRecipes = createAsyncThunk(
     }
   }
 );
+
+export const fetchSearchRecipe = createAsyncThunk(
+  "recipes/fetchSearchRecipes",
+  async ({ queryText, nextPageLink }) => {
+    try {
+      let recipesData = null;
+
+      if (!nextPageLink) {
+        const { data } = await fetchData(
+          `?type=public&app_id=${import.meta.env.VITE_APP_ID}&app_key=${import.meta.env.VITE_APP_KEY}&q=${queryText}`
+        );
+        recipesData = extractRecipeData(data);
+        recipesData;
+      } else {
+        const { data } = await fetchData(`${nextPageLink}`);
+        recipesData = extractRecipeData(data);
+      }
+
+      return recipesData;
+    } catch (error) {
+      throw Error("Failed to search recipes.");
+    }
+  }
+);

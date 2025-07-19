@@ -1,6 +1,6 @@
 import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
 import { STATUS } from "../../utils/status";
-import { fetchRecipes } from "../utils/recipeUtils";
+import { fetchRecipes, fetchSearchRecipe } from "../utils/recipeUtils";
 
 const recipesAdapter = createEntityAdapter({});
 
@@ -9,12 +9,20 @@ const initialState = recipesAdapter.getInitialState({
   status: STATUS.IDLE,
   nextPage: null,
   searchResult: null,
+  searchQuery: "",
 });
 
 const recipesSlice = createSlice({
   name: "recipes",
   initialState,
-  reducers: {},
+  reducers: {
+    setSearchQuery(state, action) {
+      state.searchQuery = action.payload;
+    },
+    clearSearch(state) {
+      state.searchResult = null;
+    },
+  },
   extraReducers(builder) {
     builder
       // handling fetching of all recipes
@@ -29,6 +37,20 @@ const recipesSlice = createSlice({
       .addCase(fetchRecipes.rejected, (state, action) => {
         state.status = STATUS.FAILED;
         state.error = action.error.message;
+      })
+
+      // handle recipe search by search terms
+      .addCase(fetchSearchRecipe.pending, (state) => {
+        state.status = STATUS.LOADING;
+      })
+      .addCase(fetchSearchRecipe.fulfilled, (state, action) => {
+        state.searchResult = action.payload.data;
+        state.nextPage = action.payload.nextPage;
+        state.status = STATUS.SUCCEEDED;
+      })
+      .addCase(fetchSearchRecipe.rejected, (state, action) => {
+        state.status = STATUS.FAILED;
+        state.error = action.error.message;
       });
   },
 });
@@ -39,5 +61,9 @@ export const { selectAll: selectAllRecipes } = recipesAdapter.getSelectors(
 
 export const getRecipesStatus = (state) => state.recipes.status;
 export const getRecipesError = (state) => state.recipes.error;
+export const getSearchQuery = (state) => state.recipes.searchQuery;
+export const selectSearchResult = (state) => state.recipes.searchResult;
+export const getRecipesNextPage = (state) => state.recipes.nextPage;
 
+export const { setSearchQuery, clearSearch } = recipesSlice.actions;
 export default recipesSlice.reducer;
