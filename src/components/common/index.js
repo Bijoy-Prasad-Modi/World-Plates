@@ -7,3 +7,7 @@ export { default as Title } from './Title';
 export { default as CategorySlider } from './CategorySlider';
 export { default as MealSlider } from "./MealSlider";
 export { default as Loader } from "./Loader";
+export { default as TypeList } from "./TypeList";
+export { default as PageTitle } from "./PageTitle";
+export { default as Breadcrumb } from "./Breadcrumb";
+export { default as Select } from "./Select";
