@@ -7,7 +7,12 @@ import { fetchTypesRecipes } from "../../redux/utils/typeUtils";
 import { scrollToTop } from "../../utils/scrollToTop";
 import { STATUS } from "../../utils/status";
 import { RecipeList } from "../../components/recipe";
-import { getTypesRecipeNextPage, getTypesRecipesError, getTypesRecipesStatus, selectTypesAllRecipes } from "../../redux/store/typeSlice";
+import {
+  getTypesRecipeNextPage,
+  getTypesRecipesError,
+  getTypesRecipesStatus,
+  selectTypesAllRecipes,
+} from "../../redux/store/typesSlice";
 
 const RecipeListPage = () => {
   const tempData = useParams();

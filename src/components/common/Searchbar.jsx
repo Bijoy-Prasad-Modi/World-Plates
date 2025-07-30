@@ -3,6 +3,7 @@ import { BsSearch } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setSearchQuery } from "../../redux/store/recipesSlice";
+import { fetchSearchRecipe } from "../../redux/utils/recipeUtils";
 
 const Searchbar = () => {
   const [error, setError] = useState("");
@@ -24,7 +25,6 @@ const Searchbar = () => {
 
   const handleChange = (event) => {
     setQueryText(event.target.value);
-    setSearchQuery(queryText);
     if (event.target.value.length === 0) {
       setError("Please enter search term.");
     }

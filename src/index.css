@@ -360,3 +360,145 @@ footer .navbar-brand {
 .home-page .meals {
   @apply bg-black/5 py-10 bg-white;
 }
+
+/* recipes listing page */
+.recipe-list-page section > .container {
+  @apply mt-14 mb-10;
+}
+.recipe-list-page .breadcrumb-select-wrapper {
+  @apply border-b-[1px] border-b-black/20 py-5 px-4 rounded-[3px] grid md:grid-cols-2;
+}
+.recipe-list-page .recipes-list {
+  @apply my-8;
+}
+
+/* recipe search page */
+.recipe-search-page .recipes-list {
+  @apply my-8;
+}
+.recipe-search-page .clear-btn-icon {
+  @apply me-1 text-danger;
+}
+
+/* recipe single page */
+.recipe-single-page {
+  @apply bg-gray/10;
+}
+.recipe-single-page .recipe-single {
+  @apply py-14;
+}
+.recipe-single {
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.recipe-single-name {
+  @apply text-3xl font-bold tracking-wider text-jet mb-2 border-b-[1px] border-black/20 py-2 mx-4;
+}
+.recipe-single .recipe-single-top {
+  @apply bg-white py-6;
+}
+.recipe-group-one {
+  @apply grid md:grid-cols-2 gap-10 mt-10 mx-4;
+}
+.recipe-group-one .recipe-left-img-wrapper {
+  @apply rounded overflow-hidden h-[480px];
+}
+.recipe-group-one .recipe-left-img-wrapper img {
+  @apply w-full h-full object-cover;
+}
+.recipe-group-one .recipe-left a {
+  @apply text-sm my-2 block;
+}
+.recipe-group-one .recipe-left a {
+  @apply font-semibold hover:text-green;
+}
+.recipe-group-one .recipe-right .recipe-right-name {
+  @apply font-bold text-xl mb-2;
+}
+/* utilites stylings for recipe single page */
+.block-title {
+  @apply font-bold tracking-wide py-1;
+}
+.recipe-block {
+  @apply my-6;
+}
+.block-list {
+  @apply my-2;
+}
+.badge-orange {
+  @apply bg-orange inline-block text-white text-sm px-2 py-[2px] capitalize rounded;
+}
+.general-info .block-list {
+  @apply grid grid-cols-2 gap-2;
+}
+.general-info .list-elem {
+  @apply grid grid-cols-2;
+}
+.general-info .list-elem-left {
+  @apply flex items-center;
+}
+.general-info .list-elem-left span {
+  @apply uppercase text-[12px] font-semibold;
+}
+.general-info .list-elem-value {
+  @apply uppercase font-semibold opacity-70 text-[12px];
+}
+.health-labels .block-list {
+  @apply flex flex-wrap;
+}
+.health-labels li {
+  @apply shadow-md me-1 mb-2 py-[3px] px-2 bg-green text-white rounded-md text-sm;
+}
+.ingredients .block-list {
+  @apply grid sm:grid-cols-2 gap-x-8;
+}
+.ingredients .block-list-item {
+  @apply grid grid-cols-[36px_auto] mb-3 border-b-[1px] border-black/10 pb-4;
+}
+.ingredients .badges-group {
+  @apply text-sm text-black/70 mt-1;
+}
+.ingredients .badges-group span {
+  @apply font-medium me-1;
+}
+.nutrients .block-list {
+  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-2;
+}
+.nutrients .block-list-item {
+  @apply text-center bg-orange/10 p-3 border-orange/20 border-[1px];
+}
+.images .block-list {
+  @apply flex items-center flex-wrap gap-4;
+}
+.images .block-list-item-wrapper {
+  @apply lg:w-[120px] w-[80px];
+}
+.images .block-list-item {
+  @apply overflow-hidden lg:h-[100px] h-[80px] lg:w-[120px] w-[80px] relative;
+}
+.images .block-list-item img {
+  @apply w-full h-full object-cover;
+}
+.images .image-item-info {
+  @apply text-jet flex items-center justify-between flex-col lg:flex-row text-xs pt-1;
+}
+.images .image-item-size {
+  @apply font-semibold opacity-80;
+}
+.images .image-item-size {
+  @apply text-[10px];
+}
+
+.recipe-single-bottom {
+  @apply bg-white py-1 mt-6;
+}
+
+/* type list page */
+.type-list-page {
+  @apply py-10;
+}
+.type-list-page .types-list {
+  @apply grid gap-4 md:gap-6 lg:gap-8 xl:gap-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6 py-8;
+}
+.type-list-page .types-item {
+  @apply rounded-[50%] overflow-hidden border-4 border-white hover:scale-90 hover:rotate-[360deg] default-transition relative after:absolute after:content-[''] after:top-0 after:left-0 after:w-full after:h-full after:bg-black/50 after:opacity-0 hover:after:opacity-100 after:default-transition;
+}

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { logo } from "../../utils/images";
-import Navbar from "./Navbar";
-import Searchbar from "./Searchbar";
+import { Navbar, Searchbar } from "../common/index";
 
 const Header = () => {
   return (
@@ -11,7 +10,7 @@ const Header = () => {
           <Link to="/" className="navbar-brand flex items-center">
             <img src={logo} alt="site logo" width={60} />
             <p className="navbar-brand-text">
-              find<span className="text-orange">Recipe.</span>
+              World<span className="text-orange">Plates</span>
             </p>
           </Link>
         </div>

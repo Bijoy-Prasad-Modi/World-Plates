@@ -18,7 +18,7 @@ const Footer = () => {
           <Link to="/" className="navbar-brand">
             <img src={logo} alt="site_logo" width={60} />
             <p className="navbar-brand-text">
-              find<span className="text-orange">Recipe.</span>
+              World<span className="text-orange">Plates</span>
             </p>
           </Link>
         </div>

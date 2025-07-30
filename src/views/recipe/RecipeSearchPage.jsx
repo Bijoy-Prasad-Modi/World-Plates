@@ -5,10 +5,16 @@ import {
   getSearchQuery,
   selectSearchResult,
   getRecipesNextPage,
+  clearSearch,
 } from "../../redux/store/recipesSlice";
 import { useEffect } from "react";
 import { scrollToTop } from "../../utils/scrollToTop";
 import { fetchSearchRecipe } from "../../redux/utils/recipeUtils";
+import { no_results } from "../../utils/images";
+import { AiOutlineClose } from "react-icons/ai";
+import { STATUS } from "../../utils/status";
+import { Loader } from "../../components/common";
+import { RecipeList } from "../../components/recipe";
 
 const RecipeSearchPage = () => {
   const dispatch = useDispatch();

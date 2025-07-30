@@ -18,6 +18,7 @@ import {
 } from "../../redux/store/recipesSlice";
 import { RecipeList } from "../../components/recipe";
 import { STATUS } from "../../utils/status";
+import { scrollToTop } from "../../utils/scrollToTop";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,8 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(fetchRecipes());
   }, [dispatch]);
+
+  useEffect(() => scrollToTop(), []);
 
   return (
     <main className="home-page custom-min-h pt-[4px]">
@@ -43,6 +46,7 @@ const HomePage = () => {
         </div>
         <CategorySlider />
       </section>
+
       <section className="showcase-recipes">
         <div className="container">
           <Title subTitle="Some Recipes" mainTitle="Chicken Recipes" />
@@ -57,6 +61,7 @@ const HomePage = () => {
           )}
         </div>
       </section>
+
       <section className="dishes">
         <div className="container">
           <Title subTitle="Find Dishes you love" mainTitle="Recipe Dishes" />
@@ -74,6 +79,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+      
       <section className="meals">
         <div className="container">
           <Title subTitle="Get Meal Ready" mainTitle="Recipe Meals" />

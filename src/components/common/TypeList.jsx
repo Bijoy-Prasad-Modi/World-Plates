@@ -7,11 +7,11 @@ const TypeList = ({ typeList, typeId }) => {
       {typeList.map((typeItem, idx) => (
         <Link
           to={`/recipes/${typeId}/${typeItem.type}`}
-          className="types-item group"
+          className="types-item group relative overflow-hidden"
           key={idx}
         >
-          <img src={typeItem.image} alt={typeItem.type} />
-          <span className="types-item-name group-hover:opacity-100">
+          <img src={typeItem.image} alt={typeItem.type}/>
+          <span className="absolute inset-0 flex items-center justify-center text-white z-10 text-2xl tracking-wider font-handlee opacity-0 group-hover:opacity-100">
             {typeItem.type}
           </span>
         </Link>

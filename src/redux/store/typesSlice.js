@@ -1,5 +1,5 @@
 import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
-import { STATUS } from "../../utils/status";
+import { STATUS } from "../../utils/status.js";
 import { fetchTypesRecipes } from "../utils/typeUtils.js";
 
 const typesAdapter = createEntityAdapter({});

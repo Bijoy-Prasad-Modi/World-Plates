@@ -31,3 +31,26 @@ export const extractRecipeData = (data) => {
     nextPage: data?._links?.next?.href,
   };
 };
+
+export const extractSingleRecipeData = (data) => {
+  let tempRecipe = {
+    id: extractIdAfterHash(data.recipe.uri),
+    name: data.recipe.label,
+    image: data.recipe.image,
+    images: data.recipe.images,
+    source: data.recipe.source,
+    source_url: data.recipe.url,
+    healthLabels: data.recipe.healthLabels,
+    ingredientLines: data.recipe.ingredientLines,
+    ingredients: data.recipe.ingredients,
+    calories: data.recipe.calories,
+    totalWeight: data.recipe.totalWeight,
+    totalTime: data.recipe.totalTime,
+    cuisineType: data.recipe.cuisineType,
+    mealType: data.recipe.mealType,
+    dishType: data.recipe.dishType,
+    nutrients: data.recipe.totalNutrients,
+  };
+
+  return tempRecipe;
+};

@@ -2,7 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { extractRecipeData } from "../../utils/helpers";
 import fetchData from "../../api/axios";
 
-
 export const fetchTypesRecipes = createAsyncThunk(
   "recipes/type/fetchRecipes",
   async (obj) => {
@@ -12,7 +11,9 @@ export const fetchTypesRecipes = createAsyncThunk(
     // if the given fetch request is not a link & doesn't have type=public information
     if (!(Object.keys(typeData).length === 0)) {
       const { data } = await fetchData(
-        `?type=public&app_id=${import.meta.env.VITE_APP_ID}&app_key=${import.meta.env.VITE_APP_KEY}&${typeData.typeOf}Type=${typeData.typeName}`
+        `?type=public&app_id=${import.meta.env.VITE_APP_ID}&app_key=${
+          import.meta.env.VITE_APP_KEY
+        }&${typeData.typeOf}Type=${typeData.typeName}`
       );
       recipesData = extractRecipeData(data);
     } else {

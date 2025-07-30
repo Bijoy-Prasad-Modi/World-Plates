@@ -1,6 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import fetchData from "../../api/axios";
-import { extractRecipeData } from "../../utils/helpers";
+import {
+  extractRecipeData,
+  extractSingleRecipeData,
+} from "../../utils/helpers";
 
 export const fetchRecipes = createAsyncThunk(
   "recipes/fetchRecipes",
@@ -28,7 +31,9 @@ export const fetchSearchRecipe = createAsyncThunk(
 
       if (!nextPageLink) {
         const { data } = await fetchData(
-          `?type=public&app_id=${import.meta.env.VITE_APP_ID}&app_key=${import.meta.env.VITE_APP_KEY}&q=${queryText}`
+          `?type=public&app_id=${import.meta.env.VITE_APP_ID}&app_key=${
+            import.meta.env.VITE_APP_KEY
+          }&q=${queryText}`
         );
         recipesData = extractRecipeData(data);
         recipesData;
@@ -40,6 +45,23 @@ export const fetchSearchRecipe = createAsyncThunk(
       return recipesData;
     } catch (error) {
       throw Error("Failed to search recipes.");
+    }
+  }
+);
+
+export const fetchSingleRecipe = createAsyncThunk(
+  "recipe/fetchSingleRecipes",
+  async (recipeId) => {
+    try {
+      const { data } = await fetchData(
+        `/${recipeId}?type=public&app_id=${
+          import.meta.env.VITE_APP_ID
+        }&app_key=${import.meta.env.VITE_APP_KEY}`
+      );
+      let recipeData = extractSingleRecipeData(data);
+      return recipeData;
+    } catch (error) {
+      throw Error("Failed to fetch single recipe");
     }
   }
 );
